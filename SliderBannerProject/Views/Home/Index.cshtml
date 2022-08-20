@@ -1,0 +1,119 @@
+﻿@using SliderBannerProject.Model.Entity
+@model List<Table_Slider>
+@{
+    Layout = "~/Views/Shared/TestLayout.cshtml";
+}
+
+<!doctype html>
+<html>
+<head>
+    <title>QNimate Slider</title>
+    <link href="~/Content/style.css" type="text/javascript" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="slider-holder">
+
+        <span id="slider-image-1"></span>
+        <span id="slider-image-2"></span>
+
+        <div class="image-holder">
+            @foreach (var item in Model)
+            {
+                <img src="@item.SliderPhoto" class="slider-image" alt="test" />
+
+                <div class="carousel-caption">
+
+                    <h3>@item.SliderInfo1</h3>
+                </div>
+            }
+
+        </div>
+        <br />
+        <div class="button-holder">
+            <a href="#slider-image-1" class="slider-change"></a>
+            <a href="#slider-image-2" class="slider-change"></a>
+
+        </div>
+
+    </div>
+    
+    <style>
+            .carousel-caption {
+                position: absolute;
+                right: 0%;
+                bottom: 20px;
+                left: 0%;
+                z-index: 10;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                color: #fff;
+                text-align: left;
+            }
+
+            .slider-holder {
+                width: 800px;
+                height: 532px;
+                background-color: transparent;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 0px;
+                text-align: center;
+                overflow: hidden;
+            }
+
+            .image-holder {
+                width: 2400px;
+                background-color: transparent;
+                height: 400px;
+                clear: both;
+                position: relative;
+                -webkit-transition: left 2s;
+                -moz-transition: left 2s;
+                -o-transition: left 2s;
+                transition: left 2s;
+            }
+
+            .slider-image {
+                float: left;
+                margin: 0px;
+                padding: 0px;
+                position: relative;
+            }
+
+            #slider-image-1:target ~ .image-holder {
+                left: 0px;
+            }
+
+            #slider-image-2:target ~ .image-holder {
+                left: -800px;
+            }
+
+            #slider-image-3:target ~ .image-holder {
+                left: -1600px;
+            }
+
+            .button-holder {
+                position: relative;
+                top: -20px;
+            }
+
+            .slider-change {
+                display: inline-block;
+                height: 10px;
+                width: 10px;
+                border-radius: 5px;
+                background-color: brown;
+            }
+        </style>
+    </body>
+</html>
+
+
+@*<div class="item" id="x">
+        <img src="~/Pictures/images.jpg" class="slider-image" />
+        <div class="carousel-caption">
+            <h3>TEST</h3>
+        </div>
+
+    </div>*@

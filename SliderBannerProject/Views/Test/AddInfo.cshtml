@@ -1,0 +1,29 @@
+﻿@model SliderBannerProject.Model.Entity.Table_Slider
+@{
+    ViewBag.Title = "AddInfo";
+    Layout = "~/Views/Shared/TestLayout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<form method="post" style="text-align:center">
+
+    <label>HTML Link</label>
+    @Html.Label("Photo Url")
+    <br />
+    @Html.TextBoxFor(a => a.SliderPhoto, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.Label("Information")
+    <br />
+    @Html.TextBoxFor(a => a.SliderInfo1, new { @class = "form-control" })
+    <br />
+    <br />
+    <button class="btn btn-warning">Update</button>
+
+</form>
+

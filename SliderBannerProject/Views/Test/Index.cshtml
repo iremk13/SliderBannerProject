@@ -1,0 +1,66 @@
+﻿@using SliderBannerProject.Model.Entity
+@model List<Table_Slider>
+@{
+    Layout = "~/Views/Shared/TestLayout.cshtml";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="~/Content/mystyle.css" rel="stylesheet" />
+    <script defer src="~/Content/Script.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div class="slideshow-container">
+
+        <!-- Full-width images with number and caption text -->
+        @foreach (var item in Model)
+        {
+        <div class="mySlides w3-animate-fading">
+            <div class="numbertext">@item.ID</div>
+            <img src="@item.SliderPhoto" style="width:100%" />
+            <br />
+            <br />
+            <div class="text" id="text1" >@item.SliderInfo1</div>
+            <br />
+            <br />
+            <div class="text" id="update">
+
+                <p style="margin-bottom:-50px" >
+                    <a href="/Test/UpdateInfo/@item.ID" id="update1">
+                        Update Slider
+                    </a>
+                </p>
+            </div>
+        </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            }
+
+        
+    </div>
+    <br>
+   
+</body>
+<!-- The dots/circles -->
+<br />
+<div style="text-align:center">
+    @foreach (var item in Model)
+    {
+        <span class="dot" onclick="currentSlide(@item.ID)"></span>
+    }
+
+
+</div>
+
+<br />
+<div style="text-align:center">
+    <a href="/Test/AddInfo" class="btn btn-warning" style="text-align:center">Add New Slider Photo</a>
+</div>
+
+
+
+</html>
+<!-- Slideshow container -->
